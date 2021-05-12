@@ -1,37 +1,854 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+  
 
 
-{% block content %}
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="web,浏览器存储技术," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="常见的浏览器存储技术cookiecookie会随着每次HTTP请求头信息要一起发送，无形中增加了网络流量，且cookie存储的数据容量有限，会根据浏览器不同而决定(IE6只存储2K)  缺点是：限制保存数据空间大小、数据保密性差、代码操纵复制等  创建cookie1document.cookie&#x3D;&quot;username&#x3D;Bill&quot;   告诉浏览器 cookie 属于什么路径。默认情">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器存储技术">
+<meta property="og:url" content="http://yoursite.com/2019/10/13/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8%E6%8A%80%E6%9C%AF/index.html">
+<meta property="og:site_name" content="MoxiMoxi">
+<meta property="og:description" content="常见的浏览器存储技术cookiecookie会随着每次HTTP请求头信息要一起发送，无形中增加了网络流量，且cookie存储的数据容量有限，会根据浏览器不同而决定(IE6只存储2K)  缺点是：限制保存数据空间大小、数据保密性差、代码操纵复制等  创建cookie1document.cookie&#x3D;&quot;username&#x3D;Bill&quot;   告诉浏览器 cookie 属于什么路径。默认情">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-10-13T03:11:30.000Z">
+<meta property="article:modified_time" content="2019-10-28T01:16:13.445Z">
+<meta property="article:author" content="moximoxi233">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="浏览器存储技术">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/10/13/浏览器存储技术/"/>
+
+
+
+
+
+  <title>浏览器存储技术 | MoxiMoxi</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MoxiMoxi</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-learning">
+          <a href="/learning/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            learning
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+
+      <div class="main-inner">
+	<a target="_blank" rel="noopener" href="https://github.com/you" style=" width: 960px;position: absolute;
+">
+<img width="149" height="149" 
+style=" right: 0; position: absolute; "
+src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149" 
+class="attachment-full size-full" 
+alt="Fork me on GitHub" 
+data-recalc-dims="1"></a>
+        <div class="content-wrap">
+
+
+
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/13/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8%E6%8A%80%E6%9C%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoxiMoxi">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">浏览器存储技术</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-13T11:11:30+08:00">
+                2019-10-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/" itemprop="url" rel="index">
+                    <span itemprop="name">web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="常见的浏览器存储技术"><a href="#常见的浏览器存储技术" class="headerlink" title="常见的浏览器存储技术"></a>常见的浏览器存储技术</h3><h4 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h4><p>cookie会随着每次HTTP请求头信息要一起发送，无形中增加了网络流量，且cookie存储的数据容量有限，会根据浏览器不同而决定(IE6只存储2K)</p>
+<ul>
+<li>缺点是：限制保存数据空间大小、数据保密性差、代码操纵复制等</li>
+</ul>
+<h5 id="创建cookie"><a href="#创建cookie" class="headerlink" title="创建cookie"></a>创建cookie</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.cookie=<span class="string">&quot;username=Bill&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>告诉浏览器 cookie 属于什么路径。默认情况下，cookie 属于当前页。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.cookie = <span class="string">&quot;username=Bill Gates; expires=Sun, 31 Dec 2017 12:00:00 UTC; path=/&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<h5 id="读取cookie"><a href="#读取cookie" class="headerlink" title="读取cookie"></a>读取cookie</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x=<span class="built_in">document</span>.cookie</span><br></pre></td></tr></table></figure>
+
+<h5 id="删除cookie"><a href="#删除cookie" class="headerlink" title="删除cookie"></a>删除cookie</h5><ul>
+<li>删除 cookie 时不必指定 cookie 值</li>
+<li>直接把 expires 参数设置为过去的日期即可</li>
+<li>注意：定义 cookie 路径以确保删除正确的 cookie。如果你不指定路径，一些浏览器不会让你删除 cookie。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.cookie = <span class="string">&quot;username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<h5 id="修改cookie"><a href="#修改cookie" class="headerlink" title="修改cookie"></a>修改cookie</h5><ul>
+<li>创建 cookie 一样改变它，那么，旧 cookie 被覆盖。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.cookie = <span class="string">&quot;username=Steve Jobs; expires=Sun, 31 Dec 2017 12:00:00 UTC; path=/&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="web-Storage"><a href="#web-Storage" class="headerlink" title="web Storage"></a>web Storage</h4><p><code>Web Storage</code>分为<strong>会话数据</strong>与<strong>长期数据</strong></p>
+<ul>
+<li>sessionStorage(保存会话数据)，</li>
+<li>localStorage(在客户端长期保存数据)。</li>
+</ul>
+<p>可以将客户端数据分类型进行存储，使它在运用上优越于传统、单一的Cookie; Web Storage对比Cookie</p>
+<p>web storage：</p>
+<ol>
+<li>存储空间比cookie大</li>
+<li>存储内容不会发送到<em>服务器</em>。而cookie的内容会随着请求一并发送到服务器，这对于本地存储是一种宽带浪费。</li>
+<li>独立的存储空间。不会造成数据混乱。</li>
+<li>更多丰富易用的接口，使数据操作更为简单</li>
+</ol>
+<h5 id="localStorage-在客户端长期保存数据"><a href="#localStorage-在客户端长期保存数据" class="headerlink" title="localStorage(在客户端长期保存数据)"></a>localStorage(在客户端长期保存数据)</h5><p>localStorage是Web Storage互联网存储规范中的一部分,LocalStorage对数据存储没有时间限制，也就是说数据信息在网站关闭后依然存在，下次登录还可以看见</p>
+<p>缺点：低版本浏览器不支持。</p>
+<p>使用：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//存储数据</span></span><br><span class="line">	<span class="built_in">localStorage</span>.setItem(<span class="string">&quot;name&quot;</span>,<span class="string">&quot;哈哈哈&quot;</span>)</span><br><span class="line">	<span class="built_in">localStorage</span>.setItem(<span class="string">&quot;name2&quot;</span>,<span class="string">&quot;哈哈哈&quot;</span>)</span><br><span class="line"><span class="comment">//获取数据</span></span><br><span class="line">    <span class="built_in">localStorage</span>.getItem(<span class="string">&quot;name&quot;</span>)</span><br><span class="line">    <span class="built_in">localStorage</span>.getItem(<span class="string">&quot;name2&quot;</span>)</span><br><span class="line"><span class="comment">//删除数据</span></span><br><span class="line">    <span class="built_in">localStorage</span>.removeItem(<span class="string">&quot;name&quot;</span>)</span><br><span class="line"><span class="comment">//清空所有数据</span></span><br><span class="line">    <span class="built_in">localStorage</span>.clear()</span><br></pre></td></tr></table></figure>
+
+<h5 id="sessionStorage-保存会话数据"><a href="#sessionStorage-保存会话数据" class="headerlink" title="sessionStorage(保存会话数据)"></a>sessionStorage(保存会话数据)</h5><p>用这种方式存储的数据仅窗口级别有效，同一个窗口（或者Tab）页面刷新或者跳转，都能获取到本地存储的数据，当新开窗口或者页面时，原来的数据就失效了。</p>
+<ul>
+<li>sessionStorage仅在当前浏览器中有效，关闭浏览器数据消失</li>
+</ul>
+<p>缺点：IE不支持、不能实现数据的持久保存。<br>使用：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//存储数据</span></span><br><span class="line">    sessionStorage[<span class="string">&#x27;user&#x27;</span>]=<span class="string">&#x27;wang&#x27;</span><span class="comment">//方式一</span></span><br><span class="line">    sessionStorage.setItem(<span class="string">&#x27;user2&#x27;</span>,<span class="string">&#x27;lisan&#x27;</span>)<span class="comment">//方式二</span></span><br><span class="line"><span class="comment">//取值</span></span><br><span class="line">    <span class="keyword">var</span> x=sessionStorage[<span class="string">&#x27;user&#x27;</span>]</span><br><span class="line">    <span class="keyword">var</span> y=sessionStorage.getItem(<span class="string">&#x27;user2&#x27;</span>)</span><br><span class="line"><span class="comment">//删除</span></span><br><span class="line">    sessionStorage.removeItem(<span class="string">&#x27;user&#x27;</span>)</span><br><span class="line"><span class="comment">//清除数据</span></span><br><span class="line">    sessionStorage.clear()</span><br><span class="line"><span class="comment">//----------------------------------------</span></span><br><span class="line"><span class="comment">//取sessionStorage的总数</span></span><br><span class="line"><span class="keyword">var</span> length=sessionStorage.length;</span><br><span class="line"><span class="comment">//遍历客户端储存的所有的数据：</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;sessionStorage.length;i++)&#123;</span><br><span class="line">    <span class="keyword">var</span> key=sessionStorage.key(i)</span><br><span class="line">    <span class="keyword">var</span> value=sessionStorage[key]</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;key=&#x27;</span>+key+<span class="string">&#x27;===&#x27;</span>+<span class="string">&#x27;value=&#x27;</span>+value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="sessionStorage、localStorage和cookie区别？"><a href="#sessionStorage、localStorage和cookie区别？" class="headerlink" title="sessionStorage、localStorage和cookie区别？"></a>sessionStorage、localStorage和cookie区别？</h4><p>1.数据的有效性不同。</p>
+<ul>
+<li>localStorage  关闭浏览器数据不会失效。</li>
+<li>sessionStorage  仅在当前浏览器中有效，关闭浏览器数据失效。</li>
+<li>cookie  只在设置cookie过期时间内有效，无论浏览器是否关闭。</li>
+</ul>
+<p>2.作用域不同。</p>
+<ul>
+<li>localStorage  在所有同源窗口中共享；</li>
+<li>sessionStorage  不在不同浏览器窗口中共享。</li>
+<li>cookie  也是所有同源窗口中共享。</li>
+</ul>
+<hr>
+<h4 id="userData"><a href="#userData" class="headerlink" title="userData"></a>userData</h4><p>IE浏览器可以使用userData来存储数据，容量可达到640K，这种方案是很可靠的，不需要安装额外的插件。</p>
+<p>​    <strong>:(  缺点：它仅在IE下有效。</strong></p>
+<h4 id="Flash-ShareObject"><a href="#Flash-ShareObject" class="headerlink" title="Flash ShareObject"></a>Flash ShareObject</h4><p>这种方式能能解决上面提到的cookie存储的两个弊端，而且能够跨浏览器，应该说是目前最好的本地存储方案。不过，需要在页面中插入一个Flash，当浏览器没有安装Flash控件时就不能用了。所幸的是，没有安装Flash的用户极少。</p>
+<p>​    <strong>:(  缺点：需要安装Flash插件。</strong></p>
+<h4 id="Google-Gear"><a href="#Google-Gear" class="headerlink" title="Google Gear"></a>Google Gear</h4><p>Google开发出的一种本地存储技术。</p>
+<p>​    <strong>:(  缺点：需要安装Gear组件。</strong></p>
+<h4 id="globalStorage"><a href="#globalStorage" class="headerlink" title="globalStorage"></a>globalStorage</h4><p>使用于Firefox2+的火狐浏览器，类似于IE的userData。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 //赋值 2 globalStorage[location.hostname][&#x27;name&#x27;] = &#x27;tugai&#x27;; 3 //读取 4 globalStorage[location.hostname][&#x27;name&#x27;]; 5 //删除 6 globalStorage[location.hostname].removeItem(&#x27;name&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>​    <strong>:(  缺点：IE不支持。</strong></p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/web/" rel="tag"># web</a>
+          
+            <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8%E6%8A%80%E6%9C%AF/" rel="tag"># 浏览器存储技术</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/13/ES6%E4%B8%AD%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="next" title="ES6中异步编程解决方案">
+                <i class="fa fa-chevron-left"></i> ES6中异步编程解决方案
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/13/jquery%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="Jquery学习笔记">
+                Jquery学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
 
     <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+      
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+          </div>
+          
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/logo.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8%E6%8A%80%E6%9C%AF"><span class="nav-number">1.</span> <span class="nav-text">常见的浏览器存储技术</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cookie"><span class="nav-number">1.1.</span> <span class="nav-text">cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAcookie"><span class="nav-number">1.1.1.</span> <span class="nav-text">创建cookie</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96cookie"><span class="nav-number">1.1.2.</span> <span class="nav-text">读取cookie</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%A0%E9%99%A4cookie"><span class="nav-number">1.1.3.</span> <span class="nav-text">删除cookie</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9cookie"><span class="nav-number">1.1.4.</span> <span class="nav-text">修改cookie</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#web-Storage"><span class="nav-number">1.2.</span> <span class="nav-text">web Storage</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#localStorage-%E5%9C%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%95%BF%E6%9C%9F%E4%BF%9D%E5%AD%98%E6%95%B0%E6%8D%AE"><span class="nav-number">1.2.1.</span> <span class="nav-text">localStorage(在客户端长期保存数据)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#sessionStorage-%E4%BF%9D%E5%AD%98%E4%BC%9A%E8%AF%9D%E6%95%B0%E6%8D%AE"><span class="nav-number">1.2.2.</span> <span class="nav-text">sessionStorage(保存会话数据)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sessionStorage%E3%80%81localStorage%E5%92%8Ccookie%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">1.3.</span> <span class="nav-text">sessionStorage、localStorage和cookie区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#userData"><span class="nav-number">1.4.</span> <span class="nav-text">userData</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Flash-ShareObject"><span class="nav-number">1.5.</span> <span class="nav-text">Flash ShareObject</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Google-Gear"><span class="nav-number">1.6.</span> <span class="nav-text">Google Gear</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#globalStorage"><span class="nav-number">1.7.</span> <span class="nav-text">globalStorage</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text"></span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">moximoxi233</span>
+
+  
+</div>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  Website visitors:<span id="busuanzi_value_site_uv">3</span>
+</span>
+</div>
+
+
+
+  <div class="powered-by"> 由moximoxi233负责维护</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link">hhh</a> </div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
