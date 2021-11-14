@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="||、&amp;&amp; 运算符迅速规则​    ||  只要“||”前面为false，无论“||”后面是true还是false，结果都返回“||”后面的值。   只要“||”前面为true，无论“||”后面是true还是false，结果都返回“||”前面的值。  &amp;&amp;  只要“&amp;&amp;”前面是false，无论“&amp;&amp;”后面是true还是false，结果">
+<meta name="description" content="循环Switch-case语句1234567891011121314151617181920var a&#x3D;4;    switch (--a) &amp;#123;    case 1:console.log(&quot;等于1&quot;);    break;    case 2:console.log(&quot;等于2&quot;);    break;    case 3:console.log(">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端笔试之JS篇">
 <meta property="og:url" content="http://yoursite.com/2019/10/12/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AF%95%E2%80%94JS%E7%AF%87/index.html">
 <meta property="og:site_name" content="MoxiMoxi">
-<meta property="og:description" content="||、&amp;&amp; 运算符迅速规则​    ||  只要“||”前面为false，无论“||”后面是true还是false，结果都返回“||”后面的值。   只要“||”前面为true，无论“||”后面是true还是false，结果都返回“||”前面的值。  &amp;&amp;  只要“&amp;&amp;”前面是false，无论“&amp;&amp;”后面是true还是false，结果">
+<meta property="og:description" content="循环Switch-case语句1234567891011121314151617181920var a&#x3D;4;    switch (--a) &amp;#123;    case 1:console.log(&quot;等于1&quot;);    break;    case 2:console.log(&quot;等于2&quot;);    break;    case 3:console.log(">
 <meta property="og:locale">
 <meta property="article:published_time" content="2019-10-12T13:56:16.000Z">
-<meta property="article:modified_time" content="2019-10-23T08:35:27.720Z">
+<meta property="article:modified_time" content="2021-09-27T00:45:51.257Z">
 <meta property="article:author" content="moximoxi233">
 <meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary">
@@ -368,7 +368,45 @@
       
 
       
-        <h4 id="、-amp-amp-运算符迅速规则"><a href="#、-amp-amp-运算符迅速规则" class="headerlink" title="||、&amp;&amp; 运算符迅速规则"></a>||、&amp;&amp; 运算符迅速<strong>规则</strong></h4><p>​    <strong>||</strong></p>
+        <h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><h5 id="Switch-case语句"><a href="#Switch-case语句" class="headerlink" title="Switch-case语句"></a>Switch-case语句</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var a=4;</span><br><span class="line">    switch (--a) &#123;</span><br><span class="line">    case 1:console.log(&quot;等于1&quot;);</span><br><span class="line">    break;</span><br><span class="line">    case 2:console.log(&quot;等于2&quot;);</span><br><span class="line">    break;</span><br><span class="line">    case 3:console.log(&quot;等于3&quot;);</span><br><span class="line">    break;</span><br><span class="line">    default:console.log(&quot;未找到&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    //语法：获取表达式的值，与值1比较如果值相等，执行代码1，跳出整个语句...</span><br><span class="line">    //switch(表达式)&#123;</span><br><span class="line">    //     case 值1:代码1;</span><br><span class="line">    //     break;</span><br><span class="line">    //     case 值2:代码2;</span><br><span class="line">    //     break;</span><br><span class="line">    //     case 值3:代码3;</span><br><span class="line">    //     break;</span><br><span class="line">    //     default:代码5;</span><br><span class="line">    // &#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<ul>
+<li>default后面的break，default可以省略</li>
+<li>表达式的值和case语句中的值比较的是严格模式（===）</li>
+<li>如果case语句后面的代码和break可以省略，代码可以正常执行，但是不会跳出整个语句而是继续往下执行</li>
+</ul>
+<h5 id="break，continue关键字"><a href="#break，continue关键字" class="headerlink" title="break，continue关键字"></a>break，continue关键字</h5><blockquote>
+<p>break：循环语句中遇到 break 则立即跳出当前整个循环。</p>
+<p>continue：跳出当前这一次循环，继续当前循环的下一个循环。</p>
+</blockquote>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h5 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h5><blockquote>
+<h5 id="冒泡排序：将一组数据按照一定规则排序（从大到小，从小到大）"><a href="#冒泡排序：将一组数据按照一定规则排序（从大到小，从小到大）" class="headerlink" title="冒泡排序：将一组数据按照一定规则排序（从大到小，从小到大）."></a>冒泡排序：将一组数据按照一定规则排序（从大到小，从小到大）.</h5></blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="number">6</span>,<span class="number">0</span>,<span class="number">100</span>,<span class="number">900</span>,<span class="number">874</span>,<span class="number">0</span>,<span class="number">98</span>];</span><br><span class="line">   <span class="comment">//循环控制比较次数</span></span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">       <span class="comment">//控制每一轮的比较次数 </span></span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;arr.length-<span class="number">1</span>-i;j++)&#123;</span><br><span class="line">           <span class="keyword">if</span>(arr[j]&gt;arr[j+<span class="number">1</span>])&#123;</span><br><span class="line">               <span class="keyword">var</span> temp=arr[j+<span class="number">1</span>];</span><br><span class="line">               arr[j+<span class="number">1</span>]=arr[j];</span><br><span class="line">               arr[j]=temp;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="built_in">console</span>.log(arr);</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h4 id="、-amp-amp-运算符运算规则"><a href="#、-amp-amp-运算符运算规则" class="headerlink" title="||、&amp;&amp; 运算符运算规则"></a>||、&amp;&amp; 运算符运算规则</h4><p>​    <strong>||</strong></p>
 <ul>
 <li><p>只要“||”前面为false，无论“||”后面是true还是false，结果都返回“||”后面的值。 </p>
 </li>
@@ -569,7 +607,7 @@
               
 		<a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -580,7 +618,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -591,7 +629,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -624,7 +662,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%80%81-amp-amp-%E8%BF%90%E7%AE%97%E7%AC%A6%E8%BF%85%E9%80%9F%E8%A7%84%E5%88%99"><span class="nav-number">1.</span> <span class="nav-text">||、&amp;&amp; 运算符迅速规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Object-keys"><span class="nav-number">2.</span> <span class="nav-text">Object.keys()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E5%87%A0%E7%A7%8D%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2"><span class="nav-number">3.</span> <span class="nav-text">常见的几种隐式转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%BB%E6%AD%A2%E6%B5%8F%E8%A7%88%E5%99%A8%E9%BB%98%E8%AE%A4%E8%A1%8C%E4%B8%BA"><span class="nav-number">4.</span> <span class="nav-text">阻止浏览器默认行为</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E4%BA%8B%E4%BB%B6%E7%9B%B8%E5%AF%B9%E4%BA%8Eonload%E7%9A%84%E8%A7%A6%E5%8F%91%E9%A1%BA%E5%BA%8F"><span class="nav-number">5.</span> <span class="nav-text">常见的事件相对于onload的触发顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E5%87%BD%E6%95%B0"><span class="nav-number">6.</span> <span class="nav-text">关于函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%87%E7%AD%BEtarget%E7%9A%84%E5%9B%9B%E4%B8%AA%E5%B1%9E%E6%80%A7"><span class="nav-number">7.</span> <span class="nav-text">标签target的四个属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8"><span class="nav-number">8.</span> <span class="nav-text">浏览器内核</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#clientWidth%E3%80%81scrollWidth%E3%80%81offsetWidth"><span class="nav-number">9.</span> <span class="nav-text">clientWidth、scrollWidth、offsetWidth</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8D%E6%94%AF%E6%8C%81%E5%86%92%E6%B3%A1%E4%BA%8B%E4%BB%B6"><span class="nav-number">10.</span> <span class="nav-text">不支持冒泡事件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF"><span class="nav-number">1.</span> <span class="nav-text">循环</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Switch-case%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.0.1.</span> <span class="nav-text">Switch-case语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#break%EF%BC%8Ccontinue%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">1.0.2.</span> <span class="nav-text">break，continue关键字</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">2.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F"><span class="nav-number">2.0.1.</span> <span class="nav-text">排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%EF%BC%9A%E5%B0%86%E4%B8%80%E7%BB%84%E6%95%B0%E6%8D%AE%E6%8C%89%E7%85%A7%E4%B8%80%E5%AE%9A%E8%A7%84%E5%88%99%E6%8E%92%E5%BA%8F%EF%BC%88%E4%BB%8E%E5%A4%A7%E5%88%B0%E5%B0%8F%EF%BC%8C%E4%BB%8E%E5%B0%8F%E5%88%B0%E5%A4%A7%EF%BC%89"><span class="nav-number">2.0.2.</span> <span class="nav-text">冒泡排序：将一组数据按照一定规则排序（从大到小，从小到大）.</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%80%81-amp-amp-%E8%BF%90%E7%AE%97%E7%AC%A6%E8%BF%90%E7%AE%97%E8%A7%84%E5%88%99"><span class="nav-number">2.1.</span> <span class="nav-text">||、&amp;&amp; 运算符运算规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Object-keys"><span class="nav-number">2.2.</span> <span class="nav-text">Object.keys()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E5%87%A0%E7%A7%8D%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2"><span class="nav-number">2.3.</span> <span class="nav-text">常见的几种隐式转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%BB%E6%AD%A2%E6%B5%8F%E8%A7%88%E5%99%A8%E9%BB%98%E8%AE%A4%E8%A1%8C%E4%B8%BA"><span class="nav-number">2.4.</span> <span class="nav-text">阻止浏览器默认行为</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E4%BA%8B%E4%BB%B6%E7%9B%B8%E5%AF%B9%E4%BA%8Eonload%E7%9A%84%E8%A7%A6%E5%8F%91%E9%A1%BA%E5%BA%8F"><span class="nav-number">2.5.</span> <span class="nav-text">常见的事件相对于onload的触发顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E5%87%BD%E6%95%B0"><span class="nav-number">2.6.</span> <span class="nav-text">关于函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%87%E7%AD%BEtarget%E7%9A%84%E5%9B%9B%E4%B8%AA%E5%B1%9E%E6%80%A7"><span class="nav-number">2.7.</span> <span class="nav-text">标签target的四个属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8"><span class="nav-number">2.8.</span> <span class="nav-text">浏览器内核</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#clientWidth%E3%80%81scrollWidth%E3%80%81offsetWidth"><span class="nav-number">2.9.</span> <span class="nav-text">clientWidth、scrollWidth、offsetWidth</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8D%E6%94%AF%E6%8C%81%E5%86%92%E6%B3%A1%E4%BA%8B%E4%BB%B6"><span class="nav-number">2.10.</span> <span class="nav-text">不支持冒泡事件</span></a></li></ol></li></ol></div>
             
 
           </div>
